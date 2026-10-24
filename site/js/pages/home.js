@@ -14,6 +14,8 @@
     done.setAttribute('role', 'status');
     done.innerHTML = '<span class="num">✓</span><h3 data-i18n="lead.doneTitle"></h3><p data-i18n="lead.doneText"></p>';
     done.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = Ch.t(el.dataset.i18n); });
+    done.tabIndex = -1;
     lead.replaceWith(done);
+    done.focus();
   });
 })();

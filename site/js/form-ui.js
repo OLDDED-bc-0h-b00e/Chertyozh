@@ -10,7 +10,12 @@
   function setError(input, key) {
     const err = errorEl(input);
     input.setAttribute('aria-invalid', key ? 'true' : 'false');
-    if (err) { err.textContent = key ? Ch.t(key) : ''; err.dataset.key = key || ''; }
+    if (!err) return;
+    err.textContent = key ? Ch.t(key) : '';
+    err.dataset.key = key || '';
+    // текст ошибки зачитывается вместе с полем
+    if (!err.id) err.id = (input.id || input.name) + '-err';
+    if (key) input.setAttribute('aria-describedby', err.id); else input.removeAttribute('aria-describedby');
   }
 
   function validate(form) {

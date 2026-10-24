@@ -22,8 +22,17 @@
   const groups = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   const money = (rub, usd) => (lang === 'en' ? '$' + Math.round(usd).toLocaleString('en-US') : groups(rub) + ' ₽');
 
+  // код листа: «Л-02» → «S-02» в английской версии
+  const sheetCode = code => (lang === 'en' ? String(code).replace(/^Л-/, 'S-') : String(code));
+
+  function updateSheet() {
+    const sheet = sheetCode(document.body.dataset.sheet || '01');
+    document.querySelectorAll('.stamp__sheet').forEach(b => { b.textContent = sheet; });
+  }
+
   function applyLang() {
     root.lang = lang;
+    updateSheet();
     document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
     document.querySelectorAll('[data-i18n-attr]').forEach(el => {
       el.dataset.i18nAttr.split(';').forEach(pair => {
@@ -51,6 +60,8 @@
     onLang(fn) { langSubs.push(fn); },
     mode: () => mode,
     setMode(m) { if (!MODES.includes(m)) return; mode = m; store.set('ch.mode', m); applyMode(); window.dispatchEvent(new CustomEvent('mode:change', { detail: { mode: m } })); },
+    sheet: sheetCode,
+    setSheet(code) { document.body.dataset.sheet = code; updateSheet(); },
     price: item => money(item.price.rub, item.price.usd),
     sum: items => money(items.reduce((s, i) => s + i.price.rub, 0), items.reduce((s, i) => s + i.price.usd, 0)),
     esc: s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])),
@@ -98,16 +109,17 @@
     };
     burger.addEventListener('click', () => setOpen(!menu.classList.contains('is-open')));
     menu.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) { setOpen(false); burger.focus(); }
+    });
   }
 
   function renderFooter(el) {
-    const sheet = document.body.dataset.sheet || '01';
     el.innerHTML = `
       <div class="wrap">
         <div class="stamp">
           <div class="stamp__brand">Chertyozh</div>
-          <div class="stamp__cell"><span class="label" data-i18n="ft.sheet"></span><b>${Ch.esc(sheet)}</b></div>
+          <div class="stamp__cell"><span class="label" data-i18n="ft.sheet"></span><b class="stamp__sheet"></b></div>
           <div class="stamp__cell"><span class="label" data-i18n="ft.scale"></span><b>1:1</b></div>
           <div class="stamp__cell"><span class="label" data-i18n="ft.made"></span><b><a href="${MOONLIGHT}" target="_blank" rel="noopener">MOONLIGHT ↗</a></b></div>
           <div class="stamp__cell"><span class="label" data-i18n="ft.date"></span><b data-i18n="ft.rights"></b></div>

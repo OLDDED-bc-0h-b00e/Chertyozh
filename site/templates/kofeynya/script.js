@@ -25,8 +25,15 @@
   // бургер на мобильном
   const burger = document.querySelector('.k-burger');
   const nav = document.getElementById('k-nav');
-  const setOpen = open => { nav.classList.toggle('is-open', open); burger.setAttribute('aria-expanded', String(open)); };
+  const setOpen = open => {
+    nav.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.dataset.i18nAttr = 'aria-label:' + (open ? 'k.navClose' : 'k.navOpen');
+    burger.setAttribute('aria-label', DemoBar.t(open ? 'k.navClose' : 'k.navOpen'));
+  };
   burger.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
   nav.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { setOpen(false); burger.focus(); }
+  });
 })();

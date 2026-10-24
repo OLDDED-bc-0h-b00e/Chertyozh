@@ -12,16 +12,16 @@
 .demo-bar__brand { font-weight: 600; letter-spacing: .1em; }
 .demo-bar__label { color: #a39f95; }
 .demo-bar__back { margin-left: auto; }
-.demo-bar__back:hover { color: #e5532d; }
+.demo-bar__back:hover { color: #f26a40; }
 .demo-bar__lang { display: inline-flex; border: 1px solid rgba(241, 238, 231, .3); }
 .demo-bar__lang button, .demo-bar__buy {
   font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; border: 0;
 }
 .demo-bar__lang button { padding: 6px 8px; background: transparent; color: #a39f95; }
 .demo-bar__lang button[aria-pressed="true"] { background: #f1eee7; color: #1c1b19; }
-.demo-bar__buy { padding: 9px 12px; background: #e5532d; color: #fff; white-space: nowrap; }
+.demo-bar__buy { padding: 9px 12px; background: #bf3d1a; color: #fff; white-space: nowrap; }
 .demo-bar__buy:hover { background: #f1eee7; color: #1c1b19; }
-.demo-bar :focus-visible { outline: 2px solid #e5532d; outline-offset: 2px; }
+.demo-bar :focus-visible { outline: 2px solid #f26a40; outline-offset: 2px; }
 body.has-demo-bar { padding-top: 44px; }
 
 @media (max-width: 720px) {

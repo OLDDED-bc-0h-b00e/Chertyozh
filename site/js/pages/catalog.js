@@ -4,6 +4,13 @@
   const grid = document.getElementById('catalog-grid');
   const tabs = [...document.querySelectorAll('.tabs [data-type]')];
   const cards = CATALOG.map(item => renderCard(item));
+
+  // на тач-экранах наводить нечем — подзаголовок без «наведите»
+  const sub = document.querySelector('[data-i18n="cat.sub"]');
+  if (sub && !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    sub.dataset.i18n = 'cat.subTouch';
+    sub.textContent = Ch.t('cat.subTouch');
+  }
   cards.forEach(c => grid.append(c));
 
   tabs.forEach(b => {

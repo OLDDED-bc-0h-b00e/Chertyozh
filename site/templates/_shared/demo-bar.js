@@ -45,7 +45,7 @@
       const money = () => (lang === 'en' ? '$' + price.usd : String(price.rub).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽');
       bar.innerHTML = `
         <a class="demo-bar__brand" href="../../index.html">Chertyozh</a>
-        <span class="demo-bar__label"><span data-i18n="bar.label"></span> · ${sheet}</span>
+        <span class="demo-bar__label"><span data-i18n="bar.label"></span> · <span class="demo-bar__sheet"></span></span>
         <a class="demo-bar__back" href="../../template.html?id=${encodeURIComponent(id)}">← <span data-i18n="bar.back"></span></a>
         <span class="demo-bar__lang" role="group" data-i18n-attr="aria-label:bar.lang">
           <button type="button" data-lang="ru">RU</button><button type="button" data-lang="en">EN</button>
@@ -59,7 +59,10 @@
         if (l) { lang = l.dataset.lang; store.set('ch.lang', lang); apply(); }
         if (e.target.closest('.demo-bar__buy')) { addToCart(id); location.href = '../../cart.html'; }
       });
-      subs.push(() => { bar.querySelector('.demo-bar__price').textContent = ' · ' + money(); });
+      subs.push(() => {
+        bar.querySelector('.demo-bar__price').textContent = ' · ' + money();
+        bar.querySelector('.demo-bar__sheet').textContent = lang === 'en' ? sheet.replace(/^Л-/, 'S-') : sheet;
+      });
       apply();
     },
   };

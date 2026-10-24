@@ -14,7 +14,6 @@
     const inCart = Cart.has(item.id);
     add.textContent = Ch.t(inCart ? 'card.inCart' : 'card.add');
     add.classList.toggle('btn--accent', !inCart);
-    add.setAttribute('aria-pressed', String(inCart));
   }
 
   window.renderCard = function renderCard(item) {

@@ -14,7 +14,7 @@
 
   $('#tpl').hidden = false;
   $('#tpl-cta').hidden = false;
-  document.body.dataset.sheet = item.sheet;
+  Ch.setSheet(item.sheet);
   Reveal.mount($('#tpl-pv'), item, { big: true, autoplay: true });
 
   const demo = $('.tpl__demo');
@@ -29,17 +29,13 @@
     document.title = title + ' — Chertyozh';
     $('.tpl__crumb').textContent = title;
     $('.tpl__type').textContent = Ch.t('type.' + item.type);
-    $('.tpl__sheet').textContent = item.sheet;
+    $('.tpl__sheet').textContent = Ch.sheet(item.sheet);
     $('.tpl__title').textContent = title;
     $('.tpl__price').textContent = Ch.price(item);
     $('.tpl__desc').textContent = item.desc[lang];
     $('.tpl__fit').textContent = item.fit[lang];
     $('.tpl__list').innerHTML = item.inside[lang].map(s => `<li>${Ch.esc(s)}</li>`).join('');
-    const inCart = Cart.has(item.id);
-    add.textContent = Ch.t(inCart ? 'card.inCart' : 'card.add');
-    add.setAttribute('aria-pressed', String(inCart));
-    const img = $('.pv__img');
-    if (img) img.alt = title;
+    add.textContent = Ch.t(Cart.has(item.id) ? 'card.inCart' : 'card.add');
   }
 
   render();

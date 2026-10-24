@@ -28,6 +28,14 @@
     pv._raf = requestAnimationFrame(step);
   }
 
+  // код листа и alt картинки следуют за языком
+  const mounted = [];
+  function translate({ pv, item, img }) {
+    pv.querySelector('.pv__sheet').textContent = Ch.sheet(item.sheet);
+    if (img) img.alt = item.title[Ch.lang()] || item.title.ru;
+  }
+  Ch.onLang(() => mounted.forEach(translate));
+
   function mount(host, item, opts = {}) {
     const pv = document.createElement('div');
     pv.className = 'pv' + (opts.big ? ' pv--big' : '');
@@ -38,9 +46,12 @@
         <div class="pv__bp">${(window.BLUEPRINTS && BLUEPRINTS[item.id]) || ''}</div>
         <div class="pv__scan" aria-hidden="true"><span class="pv__pct">0%</span></div>
       </div>
-      <div class="pv__meta"><span class="label">${Ch.esc(item.sheet)}</span><span class="label">1:1</span></div>`;
+      <div class="pv__meta"><span class="label pv__sheet"></span><span class="label">1:1</span></div>`;
     pv.querySelectorAll('.d').forEach((d, n) => d.style.setProperty('--i', n));
     setP(pv, 0);
+    const entry = { pv, item, img: null };
+    mounted.push(entry);
+    translate(entry);
 
     if (item.ready && item.preview) {
       const img = new Image();
@@ -48,15 +59,24 @@
       img.alt = '';
       img.decoding = 'async';
       img.onload = () => {
-        img.alt = (item.title[Ch.lang()] || item.title.ru);
+        entry.img = img;
+        translate(entry);
         pv.querySelector('.pv__frame').insertBefore(img, pv.querySelector('.pv__scan'));
         pv.classList.add('has-img');
         touchReveal(pv);
       };
       img.src = item.preview;
       if (canHover.matches && !opts.autoplay) {
-        pv.addEventListener('pointerenter', () => { if (Ch.mode() === 'auto') animateTo(pv, 1); });
-        pv.addEventListener('pointerleave', () => { if (Ch.mode() === 'auto') animateTo(pv, 0); });
+        const open = () => { if (Ch.mode() === 'auto') animateTo(pv, 1); };
+        const close = () => { if (Ch.mode() === 'auto') animateTo(pv, 0); };
+        pv.addEventListener('pointerenter', open);
+        pv.addEventListener('pointerleave', close);
+        // с клавиатуры лист прорисовывается, пока фокус внутри карточки
+        const card = host.closest('.card');
+        if (card) {
+          card.addEventListener('focusin', open);
+          card.addEventListener('focusout', e => { if (!card.contains(e.relatedTarget)) close(); });
+        }
       }
     } else {
       pv.classList.add('is-soon');
