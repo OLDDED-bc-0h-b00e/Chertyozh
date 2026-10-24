@@ -1,0 +1,104 @@
+/* Превью «чертёж → готово», карточки-листы, каталог. */
+
+/* ---------- превью ---------- */
+.pv { --p: 0; position: relative; }
+.pv__frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+.pv__bp, .pv__img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pv__bp svg { width: 100%; height: 100%; }
+.pv__img { object-fit: cover; object-position: top center; clip-path: inset(0 0 calc((1 - var(--p)) * 100%) 0); }
+
+/* штрихи чертежа */
+.pv__bp .d {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: .7;
+  stroke-opacity: .7;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.1s var(--ease) calc(var(--i, 0) * 6ms);
+}
+.pv__bp .t { stroke-width: 1.6; stroke-opacity: .32; stroke-linecap: round; }
+.pv__bp .th { stroke-width: 2.8; stroke-opacity: .7; stroke-linecap: round; }
+.pv__bp .hl { stroke-opacity: .28; }
+.pv__bp .a { stroke: var(--accent); stroke-opacity: 1; }
+.pv__bp .dm { stroke: var(--accent); stroke-opacity: .7; }
+.pv__bp .dt { font: 500 6px var(--font-mono); fill: var(--accent); letter-spacing: .04em; }
+.pv.is-drawn .pv__bp .d { stroke-dashoffset: 0; }
+
+/* сканер */
+.pv__scan {
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(var(--p) * 100%);
+  height: 0;
+  border-top: 1px solid var(--accent);
+  opacity: 0;
+  transition: opacity .2s;
+  pointer-events: none;
+}
+.pv__pct {
+  position: absolute; left: 8px; top: -18px;
+  font: 600 10px/1 var(--font-mono); color: var(--accent); letter-spacing: .06em;
+}
+.pv.is-scanning .pv__scan { opacity: 1; }
+
+.pv__meta { display: flex; justify-content: space-between; padding-top: 8px; }
+.pv__soon {
+  position: absolute; right: 10px; top: 10px;
+  padding: 5px 8px; border: 1px solid var(--line-2); background: var(--sheet);
+  font: 500 10px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2);
+}
+
+/* режимы */
+html[data-mode="blueprint"] .pv__img { clip-path: inset(0 0 100% 0); }
+html[data-mode="final"] .pv__img { clip-path: inset(0); }
+html[data-mode="final"] .pv.has-img .pv__bp { visibility: hidden; }
+html:not([data-mode="auto"]) .pv__scan { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pv__bp .d { transition: none; }
+}
+
+/* ---------- карточка-лист ---------- */
+.grid-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+@media (max-width: 1180px) { .grid-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .grid-cards { grid-template-columns: 1fr; } }
+
+.card { display: grid; gap: 14px; align-content: start; background: var(--paper); }
+.card__body { display: grid; gap: 10px; }
+.card__row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.card__price { font: 500 14px/1 var(--font-mono); }
+.card__title a { text-decoration: none; }
+.card__title a:hover { color: var(--accent); }
+.card__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.card__actions .btn { flex: 1 1 auto; }
+.btn.is-off { opacity: .45; pointer-events: none; }
+.card[hidden] { display: none; }
+
+/* каталог: «стопка листов» — под каждым превью два сдвинутых листа, при наведении верхний приподнимается */
+@media (min-width: 1024px) {
+  .grid-cards--stack { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px 32px; }
+  .grid-cards--stack .card__pv { position: relative; }
+  .grid-cards--stack .card__pv::before,
+  .grid-cards--stack .card__pv::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0;
+    aspect-ratio: 16 / 10; border: 1px solid var(--line-2); background: var(--sheet);
+    transition: transform .35s var(--ease);
+  }
+  .grid-cards--stack .card__pv::before { transform: translate(10px, 10px); }
+  .grid-cards--stack .card__pv::after { transform: translate(5px, 5px); }
+  .grid-cards--stack .card__pv .pv { position: relative; z-index: 1; transition: transform .35s var(--ease); }
+  .grid-cards--stack .card:hover .card__pv .pv { transform: translate(-6px, -6px); }
+  .grid-cards--stack .card:hover .card__pv::before { transform: translate(16px, 16px); }
+  .grid-cards--stack .card:hover .card__pv::after { transform: translate(8px, 8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grid-cards--stack .card__pv .pv, .grid-cards--stack .card__pv::before, .grid-cards--stack .card__pv::after { transition: none; }
+}

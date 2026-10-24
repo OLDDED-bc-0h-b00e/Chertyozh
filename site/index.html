@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru" data-mode="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chertyozh — шаблоны сайтов, Figma-макетов и Telegram-ботов</title>
+  <meta name="description" content="Готовые шаблоны лендингов, Figma-макетов и Telegram-ботов.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/sheet.css">
+</head>
+<body data-page="home" data-title="meta.home" data-sheet="01">
+  <div class="pl" aria-hidden="true">
+    <div class="pl__sheet">
+      <span class="pl__name">Chertyozh</span>
+      <span class="pl__scan"><span class="pl__pct">0%</span></span>
+    </div>
+  </div>
+
+  <header class="hdr" data-chrome="header"></header>
+
+  <main>
+    <!-- Hero -->
+    <section class="wrap hero">
+      <div class="sheet hero__sheet">
+        <div class="hero__top">
+          <span class="label" data-i18n="hero.tagL">Л-01 · Главная</span>
+          <span class="label" data-i18n="hero.tagR">HTML · Figma · Telegram</span>
+        </div>
+        <div class="hero__grid">
+          <div class="hero__text">
+            <h1 class="h-display hero__title">
+              <span data-i18n="hero.t1">Сначала</span>
+              <span data-i18n="hero.t2">чертёж.</span>
+              <span class="hero__accent" data-i18n="hero.t3">Потом сайт.</span>
+            </h1>
+            <p class="lead" data-i18n="hero.sub">Готовые шаблоны сайтов, Figma-макетов и Telegram-ботов. Перекрасьте под свой бренд — или закажите под ключ.</p>
+            <div class="hero__cta">
+              <a class="btn btn--accent" href="catalog.html"><span data-i18n="hero.ctaCatalog">Смотреть каталог</span><span class="arr" aria-hidden="true">→</span></a>
+              <a class="btn" href="#custom" data-i18n="hero.ctaCustom">Сделать под ключ</a>
+            </div>
+          </div>
+          <div class="hero__pv" id="hero-pv"></div>
+        </div>
+        <dl class="hero__stamp">
+          <div><dt class="label" data-i18n="ft.sheet">Лист</dt><dd>01</dd></div>
+          <div><dt class="label" data-i18n="ft.scale">Масштаб</dt><dd>1:1</dd></div>
+          <div><dt class="label" data-i18n="hero.count">Шаблонов</dt><dd>7</dd></div>
+          <div><dt class="label" data-i18n="hero.format">Формат</dt><dd>HTML / Figma / Bot</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 1.1 Каталог -->
+    <section class="wrap sec" aria-labelledby="sec-catalog">
+      <div class="sec__head">
+        <span class="num">1.1</span>
+        <h2 class="h-section" id="sec-catalog" data-i18n="home.catalogTitle">Каталог</h2>
+        <a class="sec__more" href="catalog.html"><span data-i18n="home.catalogAll">Весь каталог</span> <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="grid-cards" id="home-catalog"></div>
+    </section>
+
+    <!-- 2.1–2.3 Как это работает -->
+    <section class="wrap sec" id="how" aria-labelledby="sec-how">
+      <div class="sec__head">
+        <span class="num">2.0</span>
+        <h2 class="h-section" id="sec-how" data-i18n="how.title">Как это работает</h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="num">2.1</span>
+          <h3 class="h-card" data-i18n="how.s1t">Выберите шаблон</h3>
+          <p data-i18n="how.s1d">Лендинги, Figma-макеты и Telegram-боты — от простых до выразительных.</p>
+        </li>
+        <li class="step">
+          <span class="num">2.2</span>
+          <h3 class="h-card" data-i18n="how.s2t">Посмотрите живое демо</h3>
+          <p data-i18n="how.s2d">Каждый шаблон открывается как настоящий сайт, макет или чат с ботом — до покупки.</p>
+        </li>
+        <li class="step">
+          <span class="num">2.3</span>
+          <h3 class="h-card" data-i18n="how.s3t">Получите код и перекрасьте</h3>
+          <p data-i18n="how.s3d">Сами поменяйте цвета и тексты под бренд или отдайте дизайнеру — это дешевле, чем делать с нуля.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 3.1 Под ключ -->
+    <section class="wrap sec" id="custom" aria-labelledby="sec-custom">
+      <div class="sheet custom">
+        <div class="custom__text">
+          <span class="num">3.1</span>
+          <h2 class="h-section" id="sec-custom" data-i18n="custom.title">Нужно под ваш бренд?</h2>
+          <p class="lead" data-i18n="custom.sub">Сделаем сайт, макет или бота под ключ: по вашему шаблону или с чистого листа. Опишите задачу — ответим в течение дня.</p>
+          <p class="custom__made"><span class="label" data-i18n="ft.made">Сделано в</span> <a href="https://oldded-bc-0h-b00e.github.io/SIte-Portfolio/" target="_blank" rel="noopener">MOONLIGHT ↗</a></p>
+        </div>
+        <div class="custom__form-wrap">
+          <form class="custom__form" id="lead" novalidate>
+            <div class="field">
+              <label class="label" for="lead-name" data-i18n="form.name">Имя</label>
+              <input id="lead-name" name="name" type="text" autocomplete="name" required>
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label class="label" for="lead-contact" data-i18n="form.contact">Email или Telegram</label>
+              <input id="lead-contact" name="contact" type="text" autocomplete="email" required>
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label class="label" for="lead-msg" data-i18n="form.msg">Что нужно сделать</label>
+              <textarea id="lead-msg" name="message" rows="3"></textarea>
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+            <button class="btn btn--accent" type="submit"><span data-i18n="form.send">Отправить заявку</span><span class="arr" aria-hidden="true">→</span></button>
+            <p class="label form__note" data-i18n="form.demoNote">Демо: заявка пока никуда не отправляется</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="wrap sec" aria-labelledby="sec-faq">
+      <div class="sec__head">
+        <span class="num">4.0</span>
+        <h2 class="h-section" id="sec-faq" data-i18n="faq.title">Вопросы</h2>
+      </div>
+      <div class="faq">
+        <details class="faq__item"><summary data-i18n="faq.q1">Что я получу после покупки?</summary><p data-i18n="faq.a1">Лендинг — архив с HTML, CSS и JS и картинку шаблона. Figma-макет — ссылку на файл. Бот — код на Python и инструкцию по запуску.</p></details>
+        <details class="faq__item"><summary data-i18n="faq.q2">Можно поменять цвета и тексты?</summary><p data-i18n="faq.a2">Да. Цвета и шрифты вынесены в переменные, тексты — в одно место. Это пара часов работы для дизайнера или вас самих.</p></details>
+        <details class="faq__item"><summary data-i18n="faq.q3">Нужен ли программист?</summary><p data-i18n="faq.a3">Для лендинга и макета — нет. Для бота понадобится разместить код на сервере; можем сделать это за вас.</p></details>
+        <details class="faq__item"><summary data-i18n="faq.q4">Почему оплата не списывается?</summary><p data-i18n="faq.a4">Это демонстрационный магазин: оформление показывает, как всё будет работать. Чтобы купить или заказать — оставьте заявку.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr" data-chrome="footer"></footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/blueprints.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/card.js"></script>
+  <script src="js/form-ui.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="js/pages/home.js"></script>
+</body>
+</html>

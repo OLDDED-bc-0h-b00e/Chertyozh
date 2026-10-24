@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Полка — бот-магазин</title>
+  <meta name="description" content="Демо шаблона Chertyozh: Telegram-бот магазина.">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../_shared/demo-bar.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-title="b.title">
+  <main class="b-page">
+    <section class="b-about" aria-labelledby="b-about-t">
+      <p class="b-kicker" data-i18n="b.kicker">Telegram-бот · шаблон</p>
+      <h1 id="b-about-t" data-i18n="b.aboutTitle">Магазин прямо в чате</h1>
+      <p class="b-lead" data-i18n="b.aboutText">Покупатель листает каталог, смотрит карточку товара, кладёт в корзину и оформляет заказ — не выходя из мессенджера. Нажимайте кнопки в чате справа.</p>
+      <ul class="b-features">
+        <li data-i18n="b.f1">Каталог по категориям</li>
+        <li data-i18n="b.f2">Карточка товара с фото и ценой</li>
+        <li data-i18n="b.f3">Корзина и выбор доставки</li>
+        <li data-i18n="b.f4">Акции и промокоды</li>
+        <li data-i18n="b.f5">Передача вопроса менеджеру</li>
+      </ul>
+      <button class="b-restart" type="button" data-i18n="b.restart">Перезапустить</button>
+    </section>
+
+    <section class="b-phone" data-i18n-attr="aria-label:b.chatLabel">
+      <div class="b-screen">
+        <header class="b-chat-hdr">
+          <span class="b-ava" aria-hidden="true">П</span>
+          <div><p class="b-name" data-i18n="b.name">Полка · магазин</p><p class="b-sub" data-i18n="b.sub">бот</p></div>
+          <button class="b-restart b-restart--icon" type="button" data-i18n-attr="aria-label:b.restart;title:b.restart">↻</button>
+        </header>
+        <div class="b-msgs" id="msgs" role="log" aria-live="polite" tabindex="-1"></div>
+        <div class="b-input" aria-hidden="true"><span data-i18n="b.input">Используйте кнопки ↑</span><i></i></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../_shared/i18n-demo.js"></script>
+  <script src="i18n.js"></script>
+  <script src="../_shared/demo-bar.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

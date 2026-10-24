@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru" data-mode="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина — Chertyozh</title>
+  <meta name="description" content="Готовые шаблоны лендингов, Figma-макетов и Telegram-ботов.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/sheet.css">
+</head>
+<body data-page="cart" data-title="meta.cart" data-sheet="04">
+  <header class="hdr" data-chrome="header"></header>
+
+  <main>
+    <section class="wrap page-head">
+      <div class="page-head__row">
+        <span class="label" data-i18n="cartp.tag">Л-04 · Корзина</span>
+        <span class="label cartp__count"></span>
+      </div>
+      <h1 class="h-display page-head__title" data-i18n="cart.link">Корзина</h1>
+      <p class="demo-note"><span class="num">!</span> <span data-i18n="cartp.demo">Демонстрационный магазин: оплата не списывается, заявка никуда не отправляется.</span></p>
+    </section>
+
+    <section class="wrap sec sec--tight cartp" id="cartp">
+      <div class="cartp__list">
+        <ul class="cart-rows" id="cart-rows"></ul>
+        <div class="cart-empty" id="cart-empty" hidden>
+          <p class="h-card" data-i18n="cartp.empty">Корзина пуста</p>
+          <a class="btn btn--accent" href="catalog.html"><span data-i18n="hero.ctaCatalog">Смотреть каталог</span><span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <aside class="sheet cartp__side" id="cart-side">
+        <div class="cartp__total">
+          <span class="label" data-i18n="cartp.total">Итого</span>
+          <span class="cartp__sum" id="cart-sum"></span>
+        </div>
+        <form class="cartp__form" id="order" novalidate>
+          <div class="field">
+            <label class="label" for="ord-email">Email *</label>
+            <input id="ord-email" name="email" type="email" autocomplete="email" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label class="label" for="ord-tg" data-i18n="cartp.tg">Telegram (необязательно)</label>
+            <input id="ord-tg" name="telegram" type="text" autocomplete="off" placeholder="@username">
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="check-field">
+            <label class="check"><input type="checkbox" name="consent" required> <span data-i18n="cartp.consent">Согласен на обработку данных для связи по заказу</span></label>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <button class="btn btn--accent" type="submit"><span data-i18n="cartp.submit">Оформить</span><span class="arr" aria-hidden="true">→</span></button>
+        </form>
+      </aside>
+    </section>
+
+    <section class="wrap sec sec--tight" id="cart-done" hidden>
+      <div class="form-done">
+        <span class="num">✓</span>
+        <h2 data-i18n="cartp.doneTitle">Заявка принята (демо)</h2>
+        <p data-i18n="cartp.doneText">Мы свяжемся с вами по email. Это демонстрационный магазин — деньги не списаны.</p>
+        <a class="btn" href="catalog.html"><span data-i18n="cartp.back">Вернуться в каталог</span><span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr" data-chrome="footer"></footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/form-ui.js"></script>
+  <script src="js/pages/cart.js"></script>
+</body>
+</html>

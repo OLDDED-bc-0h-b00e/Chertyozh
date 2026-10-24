@@ -1,0 +1,39 @@
+/* Полоска демо Chertyozh — изолирована от стилей самого демо. */
+.demo-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; gap: 14px;
+  height: 44px; padding: 0 14px;
+  background: #1c1b19; color: #f1eee7;
+  border-bottom: 1px solid #e5532d;
+  font: 500 11px/1 "JetBrains Mono", ui-monospace, Consolas, monospace;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.demo-bar a { color: inherit; text-decoration: none; }
+.demo-bar__brand { font-weight: 600; letter-spacing: .1em; }
+.demo-bar__label { color: #a39f95; }
+.demo-bar__back { margin-left: auto; }
+.demo-bar__back:hover { color: #e5532d; }
+.demo-bar__lang { display: inline-flex; border: 1px solid rgba(241, 238, 231, .3); }
+.demo-bar__lang button, .demo-bar__buy {
+  font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; border: 0;
+}
+.demo-bar__lang button { padding: 6px 8px; background: transparent; color: #a39f95; }
+.demo-bar__lang button[aria-pressed="true"] { background: #f1eee7; color: #1c1b19; }
+.demo-bar__buy { padding: 9px 12px; background: #e5532d; color: #fff; white-space: nowrap; }
+.demo-bar__buy:hover { background: #f1eee7; color: #1c1b19; }
+.demo-bar :focus-visible { outline: 2px solid #e5532d; outline-offset: 2px; }
+body.has-demo-bar { padding-top: 44px; }
+
+@media (max-width: 720px) {
+  .demo-bar { gap: 10px; padding: 0 10px; }
+  .demo-bar__label, .demo-bar__back span { display: none; }
+  .demo-bar__back { margin-left: auto; font-size: 16px; }
+}
+@media (max-width: 400px) {
+  .demo-bar__price { display: none; }
+}
+@media (max-width: 380px) {
+  .demo-bar__brand { display: none; }
+  .demo-bar__back { margin-left: 0; }
+  .demo-bar__lang { margin-left: auto; }
+}

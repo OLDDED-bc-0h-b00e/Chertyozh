@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NORDA — мобильный магазин · Figma</title>
+  <meta name="description" content="Демо шаблона Chertyozh: Figma-макет мобильного магазина.">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../_shared/demo-bar.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-title="f.title">
+  <div class="fg-top">
+    <div class="fg-file">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg>
+      <span><span data-i18n="f.file">Магазин — мобильная версия</span> <span class="fg-muted">/ Chertyozh</span></span>
+    </div>
+    <div class="fg-zoom" role="group" data-i18n-attr="aria-label:f.zoom">
+      <button type="button" id="z-out" data-i18n-attr="aria-label:f.zoomOut">−</button>
+      <span id="z-val">100%</span>
+      <button type="button" id="z-in" data-i18n-attr="aria-label:f.zoomIn">+</button>
+      <button type="button" id="z-fit" data-i18n="f.fit">Вписать</button>
+    </div>
+  </div>
+
+  <div class="fg">
+    <aside class="fg-layers" data-i18n-attr="aria-label:f.layers">
+      <p class="fg-layers__title" data-i18n="f.layers">Слои</p>
+      <ul id="layers"></ul>
+      <p class="fg-hint" data-i18n="f.hint">Перетаскивайте холст, колесо — прокрутка, Ctrl + колесо — масштаб. Клик по кадру — увеличить.</p>
+    </aside>
+    <main class="fg-canvas" id="canvas" tabindex="0" data-i18n-attr="aria-label:f.canvas">
+      <div class="fg-world" id="world"></div>
+    </main>
+  </div>
+
+  <div class="frame-zoom" id="frame-zoom" role="dialog" aria-modal="true" hidden>
+    <button class="frame-zoom__close" type="button" data-i18n-attr="aria-label:f.close">×</button>
+    <div class="frame-zoom__stage" id="frame-zoom-stage"></div>
+  </div>
+
+  <script src="../_shared/i18n-demo.js"></script>
+  <script src="i18n.js"></script>
+  <script src="../_shared/demo-bar.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

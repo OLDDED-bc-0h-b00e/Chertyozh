@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зерно и пар — кофейня</title>
+  <meta name="description" content="Демо шаблона Chertyozh: лендинг кофейни.">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../_shared/demo-bar.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-title="k.title">
+  <header class="k-hdr">
+    <div class="k-wrap k-hdr__in">
+      <a class="k-logo" href="#top" aria-label="Зерно и пар">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="var(--k-brown)"/><path d="M13 17h13v7a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z" fill="var(--k-cream)"/><path d="M26 19h2a3 3 0 0 1 0 6h-2" fill="none" stroke="var(--k-cream)" stroke-width="2"/><path d="M17 9c-1 2 1 3 0 5M21 9c-1 2 1 3 0 5" fill="none" stroke="var(--k-cream)" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span data-i18n="k.brand">Зерно и пар</span>
+      </a>
+      <nav class="k-nav" id="k-nav" data-i18n-attr="aria-label:k.navLabel">
+        <a href="#menu" data-i18n="k.navMenu">Меню</a>
+        <a href="#deal" data-i18n="k.navDeal">Акция</a>
+        <a href="#reviews" data-i18n="k.navReviews">Отзывы</a>
+        <a href="#visit" data-i18n="k.navVisit">Как найти</a>
+      </nav>
+      <a class="k-btn k-btn--sm k-hdr__cta" href="#visit" data-i18n="k.ctaVisit">Зайти к нам</a>
+      <button class="k-burger" type="button" aria-expanded="false" aria-controls="k-nav" data-i18n-attr="aria-label:k.navOpen"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="k-hero">
+      <div class="k-wrap k-hero__in">
+        <div class="k-hero__text">
+          <p class="k-kicker" data-i18n="k.kicker">Обжарка на месте · с 2019 года</p>
+          <h1 data-i18n="k.heroTitle">Кофе, ради которого просыпаются</h1>
+          <p class="k-lead" data-i18n="k.heroSub">Зерно свежей обжарки, выпечка из нашей печи и тихое место у окна. Заходите — сварим ваш любимый.</p>
+          <div class="k-hero__cta">
+            <a class="k-btn" href="#menu" data-i18n="k.ctaMenu">Смотреть меню</a>
+            <a class="k-btn k-btn--ghost" href="#visit" data-i18n="k.ctaRoute">Как добраться</a>
+          </div>
+          <dl class="k-facts">
+            <div><dt data-i18n="k.f1t">Сорта</dt><dd>12</dd></div>
+            <div><dt data-i18n="k.f2t">Открыты с</dt><dd>7:30</dd></div>
+            <div><dt data-i18n="k.f3t">Рейтинг</dt><dd>4,9</dd></div>
+          </dl>
+        </div>
+        <div class="k-hero__art" aria-hidden="true">
+          <div class="k-sun"></div>
+          <svg class="k-cup" viewBox="0 0 260 260">
+            <path class="k-steam" d="M100 40c-14 18 14 26 0 46M130 30c-14 18 14 26 0 46M160 40c-14 18 14 26 0 46" fill="none" stroke="var(--k-brown)" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="130" cy="214" rx="104" ry="20" fill="var(--k-brown)" opacity=".18"/>
+            <path d="M58 110h144v52a60 60 0 0 1-60 60h-24a60 60 0 0 1-60-60z" fill="var(--k-terra)"/>
+            <path d="M202 124h14a24 24 0 0 1 0 48h-18" fill="none" stroke="var(--k-terra)" stroke-width="12"/>
+            <ellipse cx="130" cy="110" rx="72" ry="12" fill="var(--k-brown)"/>
+            <path d="M92 150c20 10 56 10 76 0" fill="none" stroke="var(--k-cream)" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="k-sec" id="menu" aria-labelledby="k-menu-t">
+      <div class="k-wrap">
+        <h2 id="k-menu-t" data-i18n="k.menuTitle">Меню</h2>
+        <div class="k-tabs" role="tablist" data-i18n-attr="aria-label:k.menuTitle">
+          <button role="tab" id="tab-coffee" aria-controls="panel-coffee" aria-selected="true" data-i18n="k.tCoffee">Кофе</button>
+          <button role="tab" id="tab-tea" aria-controls="panel-tea" aria-selected="false" tabindex="-1" data-i18n="k.tTea">Чай</button>
+          <button role="tab" id="tab-bake" aria-controls="panel-bake" aria-selected="false" tabindex="-1" data-i18n="k.tBake">Выпечка</button>
+        </div>
+        <ul class="k-menu" id="panel-coffee" role="tabpanel" aria-labelledby="tab-coffee">
+          <li><div><h3 data-i18n="k.m1">Эспрессо</h3><p data-i18n="k.m1d">Наша смесь: шоколад, орех, мягкая кислинка</p></div><span data-i18n="k.m1p">160 ₽</span></li>
+          <li><div><h3 data-i18n="k.m2">Капучино</h3><p data-i18n="k.m2d">Двойной эспрессо и шелковистое молоко</p></div><span data-i18n="k.m2p">240 ₽</span></li>
+          <li><div><h3 data-i18n="k.m3">Флэт уайт</h3><p data-i18n="k.m3d">Крепче капучино, меньше пены</p></div><span data-i18n="k.m3p">260 ₽</span></li>
+          <li><div><h3 data-i18n="k.m4">Раф с халвой</h3><p data-i18n="k.m4d">Сливки, ваниль и подсолнечная халва</p></div><span data-i18n="k.m4p">320 ₽</span></li>
+        </ul>
+        <ul class="k-menu" id="panel-tea" role="tabpanel" aria-labelledby="tab-tea" hidden>
+          <li><div><h3 data-i18n="k.m5">Сенча</h3><p data-i18n="k.m5d">Японский зелёный, мягкий и травянистый</p></div><span data-i18n="k.m5p">220 ₽</span></li>
+          <li><div><h3 data-i18n="k.m6">Облепиховый</h3><p data-i18n="k.m6d">Облепиха, мёд, апельсин, имбирь</p></div><span data-i18n="k.m6p">290 ₽</span></li>
+          <li><div><h3 data-i18n="k.m7">Масала</h3><p data-i18n="k.m7d">Чёрный чай со специями на молоке</p></div><span data-i18n="k.m7p">270 ₽</span></li>
+        </ul>
+        <ul class="k-menu" id="panel-bake" role="tabpanel" aria-labelledby="tab-bake" hidden>
+          <li><div><h3 data-i18n="k.m8">Круассан</h3><p data-i18n="k.m8d">Слоёное тесто на сливочном масле</p></div><span data-i18n="k.m8p">150 ₽</span></li>
+          <li><div><h3 data-i18n="k.m9">Синнабон</h3><p data-i18n="k.m9d">Корица, сливочный крем, ещё тёплый</p></div><span data-i18n="k.m9p">210 ₽</span></li>
+          <li><div><h3 data-i18n="k.m10">Баскский чизкейк</h3><p data-i18n="k.m10d">Карамельная корочка, нежная середина</p></div><span data-i18n="k.m10p">280 ₽</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="k-sec" id="deal" aria-labelledby="k-deal-t">
+      <div class="k-wrap">
+        <div class="k-deal">
+          <p class="k-kicker" data-i18n="k.dealKicker">Акция дня · до 11:00</p>
+          <h2 id="k-deal-t" data-i18n="k.dealTitle">Капучино + круассан</h2>
+          <p class="k-deal__price"><s data-i18n="k.dealOld">390 ₽</s> <b data-i18n="k.dealNew">290 ₽</b></p>
+          <p data-i18n="k.dealText">Утренний сет для тех, кто спешит. Скажите бариста «утро» — и всё.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="k-sec" id="reviews" aria-labelledby="k-rev-t">
+      <div class="k-wrap">
+        <h2 id="k-rev-t" data-i18n="k.revTitle">Говорят гости</h2>
+        <div class="k-reviews">
+          <figure><blockquote data-i18n="k.r1">Лучший флэт уайт в районе. Хожу каждое утро перед работой.</blockquote><figcaption data-i18n="k.r1a">Анна, дизайнер</figcaption></figure>
+          <figure><blockquote data-i18n="k.r2">Тихо, уютно, есть розетки у каждого стола. Мой второй офис.</blockquote><figcaption data-i18n="k.r2a">Игорь, разработчик</figcaption></figure>
+          <figure><blockquote data-i18n="k.r3">Синнабон как у бабушки. Беру с собой на всю семью.</blockquote><figcaption data-i18n="k.r3a">Мария, мама двоих</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="k-sec" id="visit" aria-labelledby="k-visit-t">
+      <div class="k-wrap k-visit">
+        <div>
+          <h2 id="k-visit-t" data-i18n="k.visitTitle">Как нас найти</h2>
+          <p class="k-lead" data-i18n="k.address">ул. Лесная, 14 — вход со двора, жёлтая дверь</p>
+          <table class="k-hours">
+            <caption class="visually-hidden" data-i18n="k.hoursCap">Часы работы</caption>
+            <tr><th scope="row" data-i18n="k.wd">Пн–Пт</th><td>7:30 – 21:00</td></tr>
+            <tr><th scope="row" data-i18n="k.we">Сб–Вс</th><td>9:00 – 22:00</td></tr>
+          </table>
+          <a class="k-btn" href="#top" data-i18n="k.ctaRoute">Как добраться</a>
+        </div>
+        <div class="k-map" aria-hidden="true">
+          <svg viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="280" fill="var(--k-sand)"/>
+            <path d="M0 90h400M0 200h400M120 0v280M290 0v280" stroke="var(--k-cream)" stroke-width="18"/>
+            <path d="M0 150c80-20 140 30 220 10s120-40 180-20" fill="none" stroke="#9cc0c9" stroke-width="10" opacity=".7"/>
+            <circle cx="205" cy="125" r="14" fill="var(--k-terra)"/><circle cx="205" cy="125" r="5" fill="var(--k-cream)"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="k-ftr">
+    <div class="k-wrap k-ftr__in">
+      <span data-i18n="k.brand">Зерно и пар</span>
+      <span data-i18n="k.rights">© 2026 · Шаблон Chertyozh</span>
+    </div>
+  </footer>
+
+  <script src="../_shared/i18n-demo.js"></script>
+  <script src="i18n.js"></script>
+  <script src="../_shared/demo-bar.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

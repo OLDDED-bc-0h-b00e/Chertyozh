@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru" data-mode="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Шаблон — Chertyozh</title>
+  <meta name="description" content="Готовые шаблоны лендингов, Figma-макетов и Telegram-ботов.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/sheet.css">
+</head>
+<body data-page="template" data-nav="catalog" data-sheet="03">
+  <header class="hdr" data-chrome="header"></header>
+
+  <main id="tpl-main">
+    <section class="wrap tpl" id="tpl" hidden>
+      <nav class="crumbs label" data-i18n-attr="aria-label:tpl.crumbs">
+        <a href="catalog.html" data-i18n="nav.catalog">Каталог</a> <span aria-hidden="true">/</span> <span class="tpl__crumb"></span>
+      </nav>
+      <div class="tpl__grid">
+        <div class="tpl__pv" id="tpl-pv"></div>
+        <div class="tpl__info">
+          <div class="tpl__row"><span class="label tpl__type"></span><span class="label tpl__sheet"></span></div>
+          <h1 class="h-section tpl__title"></h1>
+          <p class="tpl__price"></p>
+          <p class="lead tpl__desc"></p>
+          <div class="tpl__actions">
+            <a class="btn btn--accent tpl__demo" target="_blank" rel="noopener"><span data-i18n="tpl.openDemo">Открыть живое демо</span><span class="arr" aria-hidden="true">↗</span></a>
+            <span class="btn btn--ghost is-off tpl__soon" data-i18n="pv.soon">Демо скоро</span>
+            <button class="btn tpl__add" type="button"></button>
+          </div>
+          <div class="tpl__block">
+            <h2 class="label" data-i18n="tpl.inside">Что внутри</h2>
+            <ol class="tpl__list"></ol>
+          </div>
+          <div class="tpl__block">
+            <h2 class="label" data-i18n="tpl.fit">Подойдёт для</h2>
+            <p class="tpl__fit"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap sec" id="tpl-cta" hidden>
+      <div class="sheet cta-strip">
+        <span class="num">3.1</span>
+        <p class="cta-strip__text" data-i18n="tpl.ctaText">Нужно под ключ? Перекрасим, доработаем и запустим под ваш бренд.</p>
+        <a class="btn btn--accent" href="index.html#custom"><span data-i18n="hero.ctaCustom">Сделать под ключ</span><span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="wrap not-found" id="tpl-404" hidden>
+      <span class="label">404 · <span data-i18n="ft.sheet">Лист</span> ?</span>
+      <h1 class="h-display" data-i18n="tpl.notFound">Лист не найден</h1>
+      <p class="lead" data-i18n="tpl.notFoundText">Такого шаблона нет — возможно, ссылка устарела. Загляните в каталог.</p>
+      <a class="btn btn--accent" href="catalog.html"><span data-i18n="hero.ctaCatalog">Смотреть каталог</span><span class="arr" aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="ftr" data-chrome="footer"></footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/blueprints.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/pages/template.js"></script>
+</body>
+</html>
