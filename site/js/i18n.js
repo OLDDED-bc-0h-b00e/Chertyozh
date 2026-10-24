@@ -58,6 +58,7 @@ window.I18N = {
     'mode.blueprint': 'Чертёж',
     'mode.final': 'Готово',
     'lang.label': 'Язык',
+    'theme.dark': 'Тёмная тема',
     'cart.link': 'Корзина',
     'cart.aria': 'Корзина, товаров:',
 
@@ -174,6 +175,7 @@ window.I18N = {
     'mode.blueprint': 'Blueprint',
     'mode.final': 'Final',
     'lang.label': 'Language',
+    'theme.dark': 'Dark theme',
     'cart.link': 'Cart',
     'cart.aria': 'Cart, items:',
 

@@ -19,6 +19,12 @@
 }
 .demo-bar__lang button { padding: 6px 8px; background: transparent; color: #a39f95; }
 .demo-bar__lang button[aria-pressed="true"] { background: #f1eee7; color: #1c1b19; }
+.demo-bar__theme {
+  display: inline-grid; place-items: center; width: 28px; height: 26px; padding: 0; cursor: pointer;
+  border: 1px solid rgba(241, 238, 231, .3); background: transparent; color: #a39f95;
+}
+.demo-bar__theme:hover { color: #f1eee7; }
+.demo-bar__theme svg { width: 14px; height: 14px; }
 .demo-bar__buy { padding: 9px 12px; background: #bf3d1a; color: #fff; white-space: nowrap; }
 .demo-bar__buy:hover { background: #f1eee7; color: #1c1b19; }
 .demo-bar :focus-visible { outline: 2px solid #f26a40; outline-offset: 2px; }

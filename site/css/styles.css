@@ -22,8 +22,10 @@
   --ease: cubic-bezier(.2, .7, .2, 1);
 }
 
+/* тёмная тема: по системе, если не выбрана светлая, или по кнопке (html[data-theme], js/theme.js) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --paper: #141412;
     --sheet: #1a1a17;
     --ink: #ece9e1;
@@ -35,6 +37,19 @@
     --accent: #f26a40; /* на тёмной бумаге светлее, текст на нём — тёмный */
     --accent-ink: #141412;
   }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #141412;
+  --sheet: #1a1a17;
+  --ink: #ece9e1;
+  --ink-2: #a39f95;
+  --ink-3: #75726a;
+  --line: rgba(236, 233, 225, .14);
+  --line-2: rgba(236, 233, 225, .38);
+  --hatch: rgba(236, 233, 225, .2);
+  --accent: #f26a40;
+  --accent-ink: #141412;
 }
 
 * { box-sizing: border-box; }
@@ -190,6 +205,13 @@ button { font: inherit; color: inherit; }
 }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+.theme-btn {
+  display: inline-grid; place-items: center; width: 32px; height: 32px; padding: 0;
+  border: 1px solid var(--line-2); background: transparent; cursor: pointer; color: var(--ink-2);
+}
+.theme-btn:hover { color: var(--ink); border-color: var(--ink); }
+.theme-btn svg { width: 16px; height: 16px; }
 
 .cart-link {
   display: inline-flex; align-items: center; gap: 8px; text-decoration: none;

@@ -4,12 +4,14 @@ window.I18N_BAR = {
     'bar.label': 'Демо шаблона',
     'bar.back': 'К шаблону',
     'bar.buy': 'Купить',
-    'bar.lang': 'Язык демо'
+    'bar.lang': 'Язык демо',
+    'bar.theme': 'Тёмная тема'
   },
   en: {
     'bar.label': 'Template demo',
     'bar.back': 'Back to template',
     'bar.buy': 'Buy',
-    'bar.lang': 'Demo language'
+    'bar.lang': 'Demo language',
+    'bar.theme': 'Dark theme'
   }
 };

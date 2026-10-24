@@ -15,7 +15,8 @@
   --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, monospace;
 }
-@media (prefers-color-scheme: dark) { :root { --fg-canvas: #1e1e1e; --fg-label: #8a8a8a; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fg-canvas: #1e1e1e; --fg-label: #8a8a8a; } }
+:root[data-theme="dark"] { --fg-canvas: #1e1e1e; --fg-label: #8a8a8a; }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }

@@ -69,6 +69,7 @@
 
   // ---------- шапка и подвал ----------
   const cartIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 4h2.5l2.2 11h10.6L20.5 7H7"/><circle cx="9.5" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>';
+  const themeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>';
   const seg = (cls, label, items) => `<div class="seg ${cls}" role="group" data-i18n-attr="aria-label:${label}">${items}</div>`;
   const modeSeg = () => seg('seg--mode', 'mode.label', MODES.map(m => `<button type="button" data-mode-set="${m}" data-i18n="mode.${m}"></button>`).join(''));
   const langSeg = () => seg('seg--lang', 'lang.label', LANGS.map(l => `<button type="button" data-lang="${l}">${l.toUpperCase()}</button>`).join(''));
@@ -83,13 +84,14 @@
     el.innerHTML = `
       <div class="wrap hdr__in">
         <a class="hdr__logo" href="index.html" aria-label="Chertyozh">
-          <picture><source srcset="assets/logo-light.svg" media="(prefers-color-scheme: dark)"><img src="assets/logo.svg" alt="" width="26" height="26"></picture>
+          <img class="hdr__logo-img" src="assets/logo.svg" alt="" width="26" height="26">
           <span>Chertyozh</span>
         </a>
         <nav class="hdr__nav" data-i18n-attr="aria-label:nav.label">${navLinks(current)}</nav>
         <div class="hdr__tools">
           ${modeSeg()}
           ${langSeg()}
+          <button class="theme-btn" type="button" data-theme-toggle data-i18n-attr="aria-label:theme.dark">${themeIcon}</button>
           <a class="cart-link" href="cart.html">${cartIcon}<span class="cart-link__text" data-i18n="cart.link"></span><span class="cart-link__count" hidden>0</span></a>
           <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="hdr-menu" data-i18n="nav.menu"></button>
         </div>
@@ -142,7 +144,16 @@
     if (l) Ch.setLang(l.dataset.lang);
     const m = e.target.closest('[data-mode-set]');
     if (m) Ch.setMode(m.dataset.modeSet);
+    if (e.target.closest('[data-theme-toggle]')) Theme.toggle();
   });
+
+  // кнопка темы и логотип (светлый вариант на тёмной бумаге)
+  function applyTheme(theme) {
+    document.querySelectorAll('[data-theme-toggle]').forEach(b => b.setAttribute('aria-pressed', String(theme === 'dark')));
+    document.querySelectorAll('.hdr__logo-img').forEach(img => { img.src = theme === 'dark' ? 'assets/logo-light.svg' : 'assets/logo.svg'; });
+  }
+  Theme.onChange(applyTheme);
+  applyTheme(Theme.current());
   window.addEventListener('cart:change', updateCartCount);
   Ch.onLang(updateCartCount);
 

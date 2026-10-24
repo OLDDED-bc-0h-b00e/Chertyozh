@@ -12,8 +12,9 @@
   --mono: "JetBrains Mono", ui-monospace, monospace;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --b-bg: #12161b; --b-ink: #e8edf2; --b-muted: #8d97a3; --b-wall: #1f2a1e; --b-bot: #212a33; --b-me: #2b5278; --b-kbd: rgba(255, 255, 255, .1); }
+  :root:not([data-theme="light"]) { --b-bg: #12161b; --b-ink: #e8edf2; --b-muted: #8d97a3; --b-wall: #1f2a1e; --b-bot: #212a33; --b-me: #2b5278; --b-kbd: rgba(255, 255, 255, .1); }
 }
+:root[data-theme="dark"] { --b-bg: #12161b; --b-ink: #e8edf2; --b-muted: #8d97a3; --b-wall: #1f2a1e; --b-bot: #212a33; --b-me: #2b5278; --b-kbd: rgba(255, 255, 255, .1); }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }

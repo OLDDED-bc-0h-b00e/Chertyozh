@@ -50,6 +50,7 @@
         <span class="demo-bar__lang" role="group" data-i18n-attr="aria-label:bar.lang">
           <button type="button" data-lang="ru">RU</button><button type="button" data-lang="en">EN</button>
         </span>
+        <button class="demo-bar__theme" type="button" data-i18n-attr="aria-label:bar.theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
         <button class="demo-bar__buy" type="button"><span data-i18n="bar.buy"></span><span class="demo-bar__price"></span></button>`;
       document.body.prepend(bar);
       document.body.classList.add('has-demo-bar');
@@ -58,7 +59,12 @@
         const l = e.target.closest('[data-lang]');
         if (l) { lang = l.dataset.lang; store.set('ch.lang', lang); apply(); }
         if (e.target.closest('.demo-bar__buy')) { addToCart(id); location.href = '../../cart.html'; }
+        if (e.target.closest('.demo-bar__theme')) Theme.toggle();
       });
+      const themeBtn = bar.querySelector('.demo-bar__theme');
+      const pressTheme = theme => themeBtn.setAttribute('aria-pressed', String(theme === 'dark'));
+      Theme.onChange(pressTheme);
+      pressTheme(Theme.current());
       subs.push(() => {
         bar.querySelector('.demo-bar__price').textContent = ' · ' + money();
         bar.querySelector('.demo-bar__sheet').textContent = lang === 'en' ? sheet.replace(/^Л-/, 'S-') : sheet;
