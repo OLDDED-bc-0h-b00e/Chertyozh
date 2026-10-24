@@ -5,7 +5,7 @@
 ## Статус
 - Магазин цифровых шаблонов в стиле «технический чертёж на бумаге». Описание: `docs/specs/2026-10-24-chertyozh-design.md`, план: `docs/superpowers/plans/`.
 - Этап 1 сделан (сайт + демо kofeynya, shop-mobile, bot-shop). Этап 2 — остальные 4 демо. Оплата и отправка заявок — заглушки в `site/js/forms.js`.
-- Репозиторий: https://github.com/OLDDED-bc-0h-b00e/Chertyozh, ветка `main`. Коммиты по-английски, коротко. Публикация (GitHub Pages) пока не настроена.
+- Репозиторий: https://github.com/OLDDED-bc-0h-b00e/Chertyozh, ветка `main`. Коммиты по-английски, коротко. Push в `main` → GitHub Actions (`.github/workflows/pages.yml`) деплоит папку `site/` на https://oldded-bc-0h-b00e.github.io/Chertyozh/ (project-страница: пути только относительные).
 - Google Fonts разрешены пользователем (Space Grotesk, JetBrains Mono; в демо — свои).
 
 ## Стек
